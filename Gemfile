@@ -34,7 +34,7 @@ gem 'pry'
 gem 'jquery-rails'
 gem 'carrierwave'
 gem 'mini_magick'
-
+gem 'responders'
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 

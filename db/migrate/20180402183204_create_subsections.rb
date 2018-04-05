@@ -7,7 +7,7 @@ class CreateSubsections < ActiveRecord::Migration[5.1]
       t.timestamps
     end
 
-  create_table :section_subsection, id: false do |t|
+  create_table :sections_subsections, id: false do |t|
       t.belongs_to :section, index: true
       t.belongs_to :subsection, index: true
     end

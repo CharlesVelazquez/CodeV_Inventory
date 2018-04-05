@@ -1,0 +1,29 @@
+<h1>Success</h1>
+<%item_count = 0 %>
+
+	<%section.subsections.each do |a| %>
+		<%a.containers.each do |b| %>
+			<% item_count += b.items.count %>
+		<% end %>
+		<%item_count += a.items.count %>
+	<% end %>
+	<%item_count += section.items.count %>
+
+<% if section.name != nil%>
+<div class ="storage_to_container">
+	<%if section.picture?%>
+	<%= link_to (image_tag section.picture.url, :style =>"width:200px;height:200px; float: left;"), section_path(section), remote: true%>
+	<%end%>
+	<div>
+	Name: <%= section.name %>
+	</div>
+	<div>
+	# of Subsections: <%= section.subsections.count %>
+	</div>
+	<div>
+	# of Items: <%= item_count %>
+	</div>
+</div>
+<%end%>
+
+<div style="clear: both;"></div>

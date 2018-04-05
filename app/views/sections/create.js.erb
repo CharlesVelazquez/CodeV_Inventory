@@ -1,0 +1,3 @@
+<% @section = ActiveSupport::Cache.lookup_store(:file_store, '/tmp/cache').read("storage").sections%>
+$('#Inventory').html("<%= j (render @section) %>");
+$('#form').slideUp(350);

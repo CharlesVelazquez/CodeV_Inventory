@@ -19,11 +19,11 @@ ActiveRecord::Schema.define(version: 20180402183232) do
     t.datetime "updated_at", null: false
   end
 
-  create_table "item_tag", id: false, force: :cascade do |t|
-    t.integer "item_id"
-    t.integer "tag_id"
-    t.index ["item_id"], name: "index_item_tag_on_item_id"
-    t.index ["tag_id"], name: "index_item_tag_on_tag_id"
+  create_table "containers_subsections", id: false, force: :cascade do |t|
+    t.integer "subsection_id"
+    t.integer "container_id"
+    t.index ["container_id"], name: "index_containers_subsections_on_container_id"
+    t.index ["subsection_id"], name: "index_containers_subsections_on_subsection_id"
   end
 
   create_table "items", force: :cascade do |t|
@@ -53,11 +53,11 @@ ActiveRecord::Schema.define(version: 20180402183232) do
     t.index ["user_id"], name: "index_items_on_user_id"
   end
 
-  create_table "section_subsection", id: false, force: :cascade do |t|
-    t.integer "section_id"
-    t.integer "subsection_id"
-    t.index ["section_id"], name: "index_section_subsection_on_section_id"
-    t.index ["subsection_id"], name: "index_section_subsection_on_subsection_id"
+  create_table "items_tags", id: false, force: :cascade do |t|
+    t.integer "item_id"
+    t.integer "tag_id"
+    t.index ["item_id"], name: "index_items_tags_on_item_id"
+    t.index ["tag_id"], name: "index_items_tags_on_tag_id"
   end
 
   create_table "sections", force: :cascade do |t|
@@ -67,11 +67,18 @@ ActiveRecord::Schema.define(version: 20180402183232) do
     t.datetime "updated_at", null: false
   end
 
-  create_table "storage_location_section", id: false, force: :cascade do |t|
+  create_table "sections_storage_locations", id: false, force: :cascade do |t|
     t.integer "storage_location_id"
     t.integer "section_id"
-    t.index ["section_id"], name: "index_storage_location_section_on_section_id"
-    t.index ["storage_location_id"], name: "index_storage_location_section_on_storage_location_id"
+    t.index ["section_id"], name: "index_sections_storage_locations_on_section_id"
+    t.index ["storage_location_id"], name: "index_sections_storage_locations_on_storage_location_id"
+  end
+
+  create_table "sections_subsections", id: false, force: :cascade do |t|
+    t.integer "section_id"
+    t.integer "subsection_id"
+    t.index ["section_id"], name: "index_sections_subsections_on_section_id"
+    t.index ["subsection_id"], name: "index_sections_subsections_on_subsection_id"
   end
 
   create_table "storage_locations", force: :cascade do |t|
@@ -81,13 +88,6 @@ ActiveRecord::Schema.define(version: 20180402183232) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["user_id"], name: "index_storage_locations_on_user_id"
-  end
-
-  create_table "subsection_container", id: false, force: :cascade do |t|
-    t.integer "subection_id"
-    t.integer "container_id"
-    t.index ["container_id"], name: "index_subsection_container_on_container_id"
-    t.index ["subection_id"], name: "index_subsection_container_on_subection_id"
   end
 
   create_table "subsections", force: :cascade do |t|

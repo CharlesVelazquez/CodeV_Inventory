@@ -7,7 +7,7 @@ class CreateSections < ActiveRecord::Migration[5.1]
       t.timestamps
     end
 
-  create_table :storage_location_section, id: false do |t|
+  create_table :sections_storage_locations, id: false do |t|
       t.belongs_to :storage_location, index: true
       t.belongs_to :section, index: true
     end

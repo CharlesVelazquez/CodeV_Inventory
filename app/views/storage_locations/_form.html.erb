@@ -1,0 +1,22 @@
+<%= form_with(model: @storage_location) do |f| %>
+	<%= render 'shared/error_messages', object: f.object %>
+	<div id="main">
+		<div id = "form_div">
+	  		<%= f.text_field :name, placeholder: "Name of new Storage Location" %>
+	  		<%= f.submit "Post", class: "button", data: { "disable-with": "Creating..." } %>
+	  			<span class="picture">
+					<%= f.file_field :picture, accept: 'image/jpeg,image/gif,image/png' %>
+				</span>
+		</div>
+	</div>
+<% end %>
+
+<!-- Going to use Javascript, utilizing jQuery to check the file size and keep the user from uploading too big of an image -->
+<script type="text/javascript">
+  $('#picture').bind('change', function() {
+    var size_in_megabytes = this.files[0].size/1024/1024;
+    if (size_in_megabytes > 30) {
+      alert('Maximum file size is 30MB. Please choose a smaller file.');
+    }
+  });
+</script>

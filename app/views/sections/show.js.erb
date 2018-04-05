@@ -1,0 +1,4 @@
+<% cache = ActiveSupport::Cache.lookup_store(:file_store, '/tmp/cache') %>
+<% cache.write("section", @section) %>
+$('#button').html("<%= j (render 'shared/button', location: 2) %>");
+$('#Inventory').html("<%= j (render @section.subsections) %>");

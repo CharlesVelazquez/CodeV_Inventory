@@ -1,11 +1,20 @@
 <% provide(:title, @user.name) %>
-<div class="row">
-  <aside class="col-md-4">
-    <section class="user_info">
-      <h1>
+<% tracker = 0 %>
+<div class="container">
+	<div id="user">
         <%= gravatar_for @user %>
-        <%= @user.name %>
-      </h1>
-    </section>
-  </aside>
+	</div>
+
+	<div class="col-md-2 col-md-offset-4">
+		<div id = "button">
+    		<%= render 'shared/button', location: 0 %>
+    	</div>
+  	</div>
+
+
+	<div class="row">
+  		<div class="col-md-6 col-md-offset-2" id="form" style="display:none;"></div>
+	</div>
+
+	<div id="Inventory"><%= render current_user.storage_locations %></div>
 </div>

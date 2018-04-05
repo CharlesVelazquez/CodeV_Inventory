@@ -7,8 +7,8 @@ class CreateContainers < ActiveRecord::Migration[5.1]
       t.timestamps
     end
 
-  create_table :subsection_container, id: false do |t|
-      t.belongs_to :subection, index: true
+  create_table :containers_subsections, id: false do |t|
+      t.belongs_to :subsection, index: true
       t.belongs_to :container, index: true
     end
   end

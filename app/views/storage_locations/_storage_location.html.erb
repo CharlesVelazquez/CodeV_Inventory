@@ -1,0 +1,31 @@
+<%item_count = 0 %>
+
+	<%storage_location.sections.each do |a| %>
+		<%a.subsections.each do |b| %>
+			<%b.containers.each do |c| %>
+				<%item_count += c.items.count %>
+			<% end %>
+			<%item_count += b.items.count %>
+		<% end %>
+		<%item_count += a.items.count %>
+	<% end %>
+	<%item_count += storage_location.items.count %>
+
+<% if storage_location.name != nil%>
+<div class ="storage_to_container">
+	<%if storage_location.picture?%>
+	<%= link_to (image_tag storage_location.picture.url, :style =>"width:200px;height:200px; float: left;"), storage_location_path(storage_location), remote: true%>
+	<%end%>
+	<div>
+	Name: <%= storage_location.name %>
+	</div>
+	<div>
+	# of Sections: <%= storage_location.sections.count %>
+	</div>
+	<div>
+	# of Items: <%= item_count %>
+	</div>
+</div>
+<%end%>
+
+<div style="clear: both;"></div>

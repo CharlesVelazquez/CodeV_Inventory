@@ -1,0 +1,20 @@
+<% if location === 0 %>
+	<%= link_to new_storage_location_path(current_user.storage_locations.new), remote: true do %>
+      		<button class="btn btn-default">New</button>
+    <% end %>
+<%elsif location === 1 %>
+    <%= link_to new_section_path(@storage_location.sections.new), remote: true do %>
+    	<button class="btn btn-default">New</button>
+    <% end %>
+
+<%elsif location === 2 %>
+    <%= link_to new_subsection_path(@section.subsections.new), remote: true do %>
+    	<button class="btn btn-default">New</button>
+    <% end %>
+
+<%elsif location === 3 %>
+    <%= link_to new_container_path(@subsection.containers.new), remote: true do %>
+    	<button class="btn btn-default">New</button>
+    <% end %>
+	
+<% end %>
