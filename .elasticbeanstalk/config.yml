@@ -4,8 +4,8 @@ branch-defaults:
     group_suffix: null
 environment-defaults:
   codev-inventory-dev:
-    branch: master
-    repository: codev_inventory
+    branch: null
+    repository: null
 global:
   application_name: CodeV_Inventory
   branch: master
