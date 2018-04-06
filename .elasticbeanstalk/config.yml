@@ -1,0 +1,22 @@
+branch-defaults:
+  master:
+    environment: codev-inventory-dev
+    group_suffix: null
+environment-defaults:
+  codev-inventory-dev:
+    branch: master
+    repository: codev_inventory
+global:
+  application_name: CodeV_Inventory
+  branch: master
+  default_ec2_keyname: null
+  default_platform: Ruby 2.5 (Puma)
+  default_region: us-east-1
+  include_git_submodules: true
+  instance_profile: null
+  platform_name: null
+  platform_version: null
+  profile: eb-cli
+  repository: codev_inventory
+  sc: git
+  workspace_type: Application
