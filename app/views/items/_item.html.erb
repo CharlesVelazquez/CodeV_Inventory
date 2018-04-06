@@ -1,0 +1,47 @@
+<h1>Success</h1>
+
+<% if item.name != nil%>
+<div class ="items">
+	<%if item.picture?%>
+	<%= link_to (image_tag item.picture.url, :style =>"width:200px;height:200px; float: left;"), edit_item_path(item), remote: true%>
+	<%end%>
+	<div class = "stats">
+	Name: <%= item.name %>
+	</div>
+
+	<div class = "stats">
+	Description: <%= item.description %>
+	</div>
+
+	<%if item.reciept_picture?%>
+	<div class = "stats">
+		<%= image_tag item.reciept_picture.url, :style =>"width:75px;height:75px; float: left;"%>
+	</div>
+	<%end%>
+
+	<div class = "stats">
+	Value: <%= item.value %>
+	</div>
+
+	<div class = "stats">
+	Uid: <%= item.uid %>
+	</div>
+
+	<div class = "stats">
+	Obtained: <%= item.obtained_date %>
+	</div>
+
+
+	<%if item.loaned? %>
+	<div class = "stats">
+		Loaned Out:<%= item.loaned_date %>
+	</div>
+	<%end%>
+
+	<div class = "stats">
+	Original Owner: <%= item.owner %>
+	</div>
+</div>
+<%end%>
+
+<div style="clear: both;"></div>

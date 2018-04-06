@@ -16,13 +16,13 @@
 	<%if storage_location.picture?%>
 	<%= link_to (image_tag storage_location.picture.url, :style =>"width:200px;height:200px; float: left;"), storage_location_path(storage_location), remote: true%>
 	<%end%>
-	<div>
+	<div class = "stats">
 	Name: <%= storage_location.name %>
 	</div>
-	<div>
+	<div class = "stats">
 	# of Sections: <%= storage_location.sections.count %>
 	</div>
-	<div>
+	<div class = "stats">
 	# of Items: <%= item_count %>
 	</div>
 </div>

@@ -1,0 +1,3 @@
+<% @containers = ActiveSupport::Cache.lookup_store(:file_store, '/tmp/cache').read("subsection").containers%>
+$('#Inventory').html("<%= j (render @containers) %>");
+$('#form').slideUp(350);

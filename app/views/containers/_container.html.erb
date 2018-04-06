@@ -1,0 +1,18 @@
+<h1>Success</h1>
+
+<% if container.name != nil%>
+<div class ="storage_to_container">
+	<%if container.picture?%>
+	<%= link_to (image_tag container.picture.url, :style =>"width:200px;height:200px; float: left;"), container_path(container), remote: true%>
+	<%end%>
+	<div class = "stats">
+	Name: <%= container.name %>
+	</div>
+
+	<div class = "stats">
+	# of Items: <%= container.items.count %>
+	</div>
+</div>
+<%end%>
+
+<div style="clear: both;"></div>

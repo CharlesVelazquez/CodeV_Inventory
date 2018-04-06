@@ -1,0 +1,26 @@
+<h1>Success</h1>
+<%item_count = 0 %>
+
+	<%subsection.containers.each do |a| %>
+		<% item_count += a.items.count %>
+	<% end %>
+	<%item_count += subsection.items.count %>
+
+<% if subsection.name != nil%>
+<div class ="storage_to_container">
+	<%if subsection.picture?%>
+	<%= link_to (image_tag subsection.picture.url, :style =>"width:200px;height:200px; float: left;"), subsection_path(subsection), remote: true%>
+	<%end%>
+	<div class = "stats">
+	Name: <%= subsection.name %>
+	</div>
+	<div class = "stats">
+	# of Containers: <%= subsection.containers.count %>
+	</div>
+	<div class = "stats">
+	# of Items: <%= item_count %>
+	</div>
+</div>
+<%end%>
+
+<div style="clear: both;"></div>

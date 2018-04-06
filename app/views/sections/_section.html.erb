@@ -14,13 +14,13 @@
 	<%if section.picture?%>
 	<%= link_to (image_tag section.picture.url, :style =>"width:200px;height:200px; float: left;"), section_path(section), remote: true%>
 	<%end%>
-	<div>
+	<div class = "stats">
 	Name: <%= section.name %>
 	</div>
-	<div>
+	<div class = "stats">
 	# of Subsections: <%= section.subsections.count %>
 	</div>
-	<div>
+	<div class = "stats">
 	# of Items: <%= item_count %>
 	</div>
 </div>

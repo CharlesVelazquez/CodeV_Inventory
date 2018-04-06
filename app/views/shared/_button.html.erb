@@ -1,20 +1,24 @@
 <% if location === 0 %>
 	<%= link_to new_storage_location_path(current_user.storage_locations.new), remote: true do %>
-      		<button class="btn btn-default">New</button>
+      		<button class="btn btn-default">New Storage Location</button>
     <% end %>
 <%elsif location === 1 %>
     <%= link_to new_section_path(@storage_location.sections.new), remote: true do %>
-    	<button class="btn btn-default">New</button>
+    	<button class="btn btn-default">New Section</button>
     <% end %>
 
 <%elsif location === 2 %>
     <%= link_to new_subsection_path(@section.subsections.new), remote: true do %>
-    	<button class="btn btn-default">New</button>
+    	<button class="btn btn-default">New Subsection</button>
+    <% end %>
+<%elsif location === 3 %>
+    <%= link_to new_container_path(ActiveSupport::Cache.lookup_store(:file_store, '/tmp/cache').read("subsection").containers.new), remote: true do %>
+    	<button class="btn btn-default">New Container</button>
     <% end %>
 
-<%elsif location === 3 %>
-    <%= link_to new_container_path(@subsection.containers.new), remote: true do %>
-    	<button class="btn btn-default">New</button>
+<%elsif location === 4 %>
+    <%= link_to new_item_path(@container.items.new), remote: true do %>
+    	<button class="btn btn-default">New Item</button>
     <% end %>
 	
 <% end %>

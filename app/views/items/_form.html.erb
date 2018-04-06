@@ -1,0 +1,31 @@
+<%= form_with(model: @item) do |f| %>
+	<%= render 'shared/error_messages', object: f.object %>
+	<div id="main">
+		<div id = "form_div">
+	  		Name: <%= f.text_field :name, placeholder: "Name of new Item" %>
+	  		<span class="picture">
+					Picture: <%= f.file_field :picture, placeholder: "Picture of item", accept: 'image/jpeg,image/gif,image/png' %>
+				</span>
+	  		Description: <%= f.text_field :description, placeholder: "Description of item" %>
+	  		<span class="picture">
+					Reciept: <%= f.file_field :reciept_picture, placeholder: "Picture of reciept", accept: 'image/jpeg,image/gif,image/png' %>
+				</span>
+	  		How Many: <%= f.number_field :qty, placeholder: "How many are there?" %>
+	  		Too Low: <%= f.number_field :min, placeholder: "How many would be considered low?" %>
+	  		Too Much: <%= f.number_field :max, placeholder: "How many would be considered too much?" %>
+	  		Cost: <%= f.number_field :value, placeholder: "How much is the item worth?" %>
+	  		Uid: <%= f.number_field :uid, placeholder: "Unique id of item?" %>
+	  		<%= f.submit "Post", class: "button" %>
+		</div>
+	</div>
+<% end %>
+
+<!-- Going to use Javascript, utilizing jQuery to check the file size and keep the user from uploading too big of an image -->
+<script type="text/javascript">
+  $('#picture').bind('change', function() {
+    var size_in_megabytes = this.files[0].size/1024/1024;
+    if (size_in_megabytes > 30) {
+      alert('Maximum file size is 30MB. Please choose a smaller file.');
+    }
+  });
+</script>

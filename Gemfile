@@ -35,6 +35,8 @@ gem 'jquery-rails'
 gem 'carrierwave'
 gem 'mini_magick'
 gem 'responders'
+gem 'alexa_rubykit'
+gem 'alexa_generator'
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 

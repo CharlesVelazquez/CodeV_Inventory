@@ -11,7 +11,7 @@ class SectionsController < ApplicationController
   		respond_to do |format|
     		if @section.save
     			ActiveSupport::Cache.lookup_store(:file_store, '/tmp/cache').read("storage").sections << @section
-		      	format.html { redirect_to current_user, notice: 'Storage Location was successfully created.' }
+		      	format.html { redirect_to current_user, notice: 'Section was successfully created.' }
 		      	format.js
 		      	format.json { render json: @section, status: :created, location: @section }
 		    else
@@ -31,6 +31,6 @@ private
   end
 
   def all_storage_location_sections
-      @section = ActiveSupport::Cache.lookup_store(:file_store, '/tmp/cache').read("storage").sections
+      @sections = ActiveSupport::Cache.lookup_store(:file_store, '/tmp/cache').read("storage").sections
   end
 end
